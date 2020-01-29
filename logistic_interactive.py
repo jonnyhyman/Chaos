@@ -252,16 +252,34 @@ def cobweb_plot(plt, idx=-1,
     diagonal_line.setPen(width=diagonal_linewidth)
 
     function_line = pg.PlotDataItem(x=func_x_vals, y=func_y_vals)
-    function_line.setPen(color='#001899', width=3.0)
+    function_line.setPen(color=colors['lomid'], width=3.0)
     function_line = plt.addItem(function_line)
 
     sizes = 1/np.linspace(.1,1,len(cobweb_x_vals))
     sizes = np.maximum(5, sizes)
 
     cobweb_line = plt.plot(cobweb_x_vals, cobweb_y_vals, symbol='o', symbolSize=sizes)
-    cobweb_line.setPen(color='#E8492E', width=cobweb_linewidth)
-    cobweb_line.setSymbolBrush(color='#CC9E8F')
+    cobweb_line.setPen(color=colors['lomid'], width=cobweb_linewidth)
     cobweb_line.setSymbolPen(color=(1,1,1,0), width=0.0)
+    cobweb_line.setSymbolBrush(color=colors['himid'])
+
+    xaxis = plt.getAxis("bottom")
+    #xaxis.setTickSpacing(4,4)
+
+    xaxis.tickFont = numfont
+    xaxis.setStyle(tickTextOffset = 20)
+
+    yaxis = plt.getAxis("left")
+    #yaxis.setTickSpacing(.2, .2)
+
+    yaxis.resizeEvent = types.MethodType(custom_axis_item_resizeEvent, yaxis)
+
+    yaxis.tickFont = numfont
+    yaxis.setStyle(tickTextOffset = 10, tickLength=10)
+
+    xaxis.label.setFont(txtfont)
+    yaxis.label.setFont(txtfont)
+    plt.titleLabel.item.setFont(txtfont)
 
     return np.concatenate(([initial_pop,], np.array(cobweb_y_vals[1::3])))
 
