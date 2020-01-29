@@ -21,7 +21,7 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 - PyQt5 : `pip install pyqt5`
 - PyQtGraph : `pip install pyqtgraph`
 
-This visualization creates a time series cobweb plot, time series graph, and bifurcation plot for visualizing the logistic map.
+This visualization creates a cobweb plot, time series graph, and bifurcation plot for visualizing the logistic map. The font pictured is "Avenir Next" which is licensed as part of macOS. Other OSes will see their default font.
 
 #### Shortcuts:
 - Spacebar: play/pause
@@ -32,6 +32,10 @@ This visualization creates a time series cobweb plot, time series graph, and bif
 ## 3D Mandelbrot Set
 `python logistic_mandelbrot.py`
 ![Mandelbrot Set within Logistic Map GIF](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-mandelbrot.gif?raw=true)
+
+Here we see the Mandelbrot set on the x-y plane, and iterations of the Mandelbrot set in the z axis. This reveals the bifurcation plot beneath the Mandelbrot set!
+
+Final visualization is accomplished by a volume rendering of 1000x1000x1000 voxels, oversampled by 16 to reduce aliasing.
 
 #### Additional Requirements
 - [Vispy](http://vispy.org) : `pip install vispy`
@@ -48,4 +52,4 @@ This visualization creates a time series cobweb plot, time series graph, and bif
 ![Logistic Map Zoom GIF](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-zoom.gif?raw=true)
 
 - [Vispy](http://vispy.org) : `pip install vispy`
-  - Note: The final version of the visualization as seen on YouTube used a custom version of Vispy, modified to improve the appearance of axes. I have not released this and don't plan to, but if you really need it please post in Issues a feature request.
+  - Note: The final version of the visualization used a custom version of Vispy, modified to improve the appearance of axes. I have not released this and don't plan to, but if you really need it please post in Issues a feature request.
