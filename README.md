@@ -4,9 +4,6 @@
 ###### Written by [Jonny Hyman](www.jonnyhyman.com), 2020
 ###### MIT License
 
-
-This code was created for this Veritasium video on YouTube!
-
 This is not a library, but rather a collection of standalone scripts! As such, there is a bit of code duplication between scripts.
 
 #### Requirements
@@ -18,7 +15,7 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 
 ## Logistic Map - Interactive
 `python logistic_interactive.py`
-![Interactive](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-interactive.png)
+![Interactive](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-interactive.png?raw=true)
 
 #### Additional Requirements
 - PyQt5 : `pip install pyqt5`
@@ -32,9 +29,9 @@ This visualization creates a time series cobweb plot, time series graph, and bif
 
 ----
 
-## Mandelbrot Set within Logistic Map
+## 3D Mandelbrot Set
 `python logistic_mandelbrot.py`
-![Mandelbrot Set within Logistic Map GIF](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-mandelbrot.gif)
+![Mandelbrot Set within Logistic Map GIF](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-mandelbrot.gif?raw=true)
 
 #### Additional Requirements
 - [Vispy](http://vispy.org) : `pip install vispy`
@@ -48,7 +45,7 @@ This visualization creates a time series cobweb plot, time series graph, and bif
 
 ## Logistic Map Zoom
 `python logistic_zoom.py`
-![Logistic Map Zoom GIF](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-zoom.gif)
+![Logistic Map Zoom GIF](https://github.com/jonnyhyman/Chaos/blob/master/images/logistic-zoom.gif?raw=true)
 
 - [Vispy](http://vispy.org) : `pip install vispy`
   - Note: The final version of the visualization as seen on YouTube used a custom version of Vispy, modified to improve the appearance of axes. I have not released this and don't plan to, but if you really need it please post in Issues a feature request.
