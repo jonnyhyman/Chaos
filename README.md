@@ -4,6 +4,8 @@
 ###### Written by [Jonny Hyman](www.jonnyhyman.com), 2020
 ###### MIT License
 
+This code was developed for [this YouTube video from Veritasium](https://www.youtube.com/watch?v=ovJcsL7vyrk)
+
 This is not a library, but rather a collection of standalone scripts! As such, there is a bit of code duplication between scripts.
 
 #### Requirements
