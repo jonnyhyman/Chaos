@@ -7,7 +7,7 @@ This code was developed for [this YouTube video from Veritasium](https://www.you
 This is not a library, but rather a collection of standalone scripts! As such, there is a bit of code duplication between scripts.
 
 #### Requirements
-- [Python 3.6+](https://www.anaconda.com/distribution/) (tested on Python 3.6 and Python 3.7)
+- [Python 3.6+](https://www.anaconda.com/distribution/) (tested on Python 3.6 and Python 3.7, macOS Catalina and Windows 10)
 - [Numpy](https://numpy.org) package : `pip install numpy`
 - [Numba](https://numba.pydata.org) package : `pip install numba`
 
