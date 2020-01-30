@@ -1,6 +1,6 @@
 # Chaos
 #### Visualizations connecting chaos theory, fractals, and  the logistic map!
-###### Written by [Jonny Hyman](www.jonnyhyman.com), 2020
+###### Written by [Jonny Hyman](https://www.jonnyhyman.com), 2020
 
 This code was developed for [this YouTube video from Veritasium](https://www.youtube.com/watch?v=ovJcsL7vyrk)
 
