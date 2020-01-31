@@ -6,10 +6,22 @@ This code was developed for [this YouTube video from Veritasium](https://www.you
 
 This is not a library, but rather a collection of standalone scripts! As such, there is a bit of code duplication between scripts.
 
-#### Requirements
+# Quick start guide
+
+#### Install these requirements
 - [Python 3.6+](https://www.anaconda.com/distribution/) (tested on Python 3.6 and Python 3.7, macOS Catalina and Windows 10)
 - [Numpy](https://numpy.org) package : `pip install numpy`
 - [Numba](https://numba.pydata.org) package : `pip install numba`
+
+#### Run guide for total beginners
+0. Open "Terminal" on macOS & Linux, "Powershell" or "Command Prompt" on Windows
+1. Download this repository and unzip it or run `git clone https://github.com/jonnyhyman/Chaos.git`
+2. Change directory into the folder where you extracted files `cd ~/route/to/your/folder`
+3. Run the program you're interested in, like `python logistic_interactive.py`
+
+If you run into problems
+0. Google the errors
+1. If it seems to be a problem with this program itself, post in "Issues"
 
 ----
 
