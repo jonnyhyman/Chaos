@@ -32,7 +32,7 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 
 #### Additional Requirements
 - PyQt5 : `pip install pyqt5`
-- PyQtGraph : `pip install pyqtgraph`
+- PyQtGraph : `pip install pyqtgraph` (Python 3.6, 3.7) or `pip install pyqtgraph==0.11.0rc0` (Python 3.8)
 
 This visualization creates a cobweb plot, time series graph, and bifurcation plot for visualizing the logistic map. The font pictured is "Avenir Next" which is licensed as part of macOS. Other OSes will see their default font.
 
