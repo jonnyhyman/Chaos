@@ -14,15 +14,22 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 - [Numba](https://numba.pydata.org) package : `pip install numba`
 
 #### Run guide for total beginners
-0. Open "Terminal" on macOS & Linux, "Powershell" or "Command Prompt" on Windows
+1. Open "Terminal" on macOS & Linux, "Powershell" or "Command Prompt" on Windows
 1. Download this repository and unzip it or run `git clone https://github.com/jonnyhyman/Chaos.git`
-2. Change directory into the folder where you extracted files `cd ~/route/to/your/folder`
-3. Run the program you're interested in, like `python logistic_interactive.py`
-4. To make changes to the code, install a text editor like [Atom](https://atom.io) and then open the file you want to edit. If this is your first python project, GO FOR IT, but also it might not be the easiest to get your head wrapped around (I use a lot of nuanced python functionality).
+1. Change directory into the folder where you extracted files `cd ~/route/to/your/folder`, usually `cd Chaos`
+1. Optionally create a [virtual environment](https://docs.python.org/3/library/venv.html#creating-virtual-environments) to keep your system clean: 
+   1. `virtualenv chaos`,
+      followed by
+   1. `chaos\Scripts\activate` (Windows) 
+      or 
+      `chaos/bin/activate` (Linux)
+1. Install the prerequisites: `pip install -r requirements.txt`
+1. Run the program you're interested in, like `python logistic_interactive.py`
+1. To make changes to the code, install a text editor like [Atom](https://atom.io) and then open the file you want to edit. If this is your first python project, GO FOR IT, but also it might not be the easiest to get your head wrapped around (I use a lot of nuanced python functionality).
 
 #### If you run into problems
-0. Google the problem you're running into
-1. If it seems to be a problem with **this** code, post in "Issues"
+1. Google the problem you're running into
+2. If it seems to be a problem with **this** code, post in "Issues"
 
 ----
 
