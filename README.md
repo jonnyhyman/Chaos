@@ -10,8 +10,11 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 
 #### Install these requirements
 - [Python 3.6+](https://www.anaconda.com/distribution/) (tested on Python 3.6 and Python 3.7, macOS Catalina and Windows 10)
+- [pip](https://pypi.org/project/pip/) package : `python -m pip install--upgrade pip`
 - [Numpy](https://numpy.org) package : `pip install numpy`
 - [Numba](https://numba.pydata.org) package : `pip install numba`
+- [pyqt5](https://pypi.org/project/PyQt5) package : `pip install pyqt5`
+- [pyqtgraph](https://www.pyqtgraph.org/) package : `pip install pyqtgraph`
 
 #### Run guide for total beginners
 0. Open "Terminal" on macOS & Linux, "Powershell" or "Command Prompt" on Windows
