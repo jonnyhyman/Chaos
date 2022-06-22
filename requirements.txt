@@ -1,4 +1,4 @@
-numpy==1.18.1
+numpy==1.22.0
 numba==0.48.0
 PyQt5==5.14.1
 pyqtgraph==0.10.0
