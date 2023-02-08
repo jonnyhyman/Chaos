@@ -468,8 +468,6 @@ class Controls(QWidget):
         self.l4.addWidget(self.ipop)
         self.ipop.setValue(50)
 
-
-
         self.verticalLayout.addLayout(self.l4)
 
         self.resize(self.sizeHint())
@@ -530,8 +528,8 @@ class Controls(QWidget):
             self.rateval = linear_interp(self.rate_box.value(),
                                             0, 3.99, 0, 3.99, lim=1, dec=2)
             self.rate.blockSignals(True)
-            self.rate.setValue( linear_interp(self.rateval,
-                                            0, 3.99, 0, 99, lim=1, dec=2) )
+            self.rate.setValue( int(linear_interp(self.rateval,
+                                            0, 3.99, 0, 99, lim=1, dec=2)) )
             self.rate.blockSignals(False)
 
         elif kind == 'ipop_slider':
@@ -540,7 +538,7 @@ class Controls(QWidget):
 
 
             self.ipop_box.blockSignals(True)
-            self.ipop_box.setValue(self.ipopval)
+            self.ipop_box.setValue(float(self.ipopval))
             self.ipop_box.blockSignals(False)
 
 
@@ -548,8 +546,8 @@ class Controls(QWidget):
             self.ipopval = self.ipop_box.value()
 
             self.ipop.blockSignals(True)
-            self.ipop.setValue( linear_interp(self.ipopval,
-                                            0, 1, 0, 100, lim=1) )
+            self.ipop.setValue( int(linear_interp(self.ipopval,
+                                            0, 1, 0, 100, lim=1)) )
             self.ipop.blockSignals(False)
 
 
@@ -575,7 +573,7 @@ class Widget(QWidget):
         self.controls.setValues()
         self.horizontalLayout.addWidget(self.controls)
 
-        self.win = pg.GraphicsWindow()
+        self.win = pg.GraphicsLayoutWidget()
 
         self.setWindowTitle("Logistic Map 🤯")
         self.horizontalLayout.addWidget(self.win)
@@ -658,7 +656,7 @@ class Widget(QWidget):
 
             self.f = 0
             self.fmax = 100
-            self.timer.start(self.animspeed)
+            self.timer.start(int(self.animspeed))
 
             self.redraw_plots()
 
@@ -669,7 +667,7 @@ class Widget(QWidget):
             self.animspeed = max(1, self.animspeed)
             self.animspeed = 1000/self.animspeed
 
-            self.timer.start(self.animspeed)
+            self.timer.start(int(self.animspeed))
 
         elif not self.animate and self.f == 0:
 
@@ -729,17 +727,7 @@ class Widget(QWidget):
 
         if self.f >= self.fmax:
             self.timer.stop()
-    """
-    def resizeEvent(self, event):
 
-        self.blockSignals(True)
-
-        w = event.size().width()
-        h = event.size().width() * 1/2.35
-
-        self.resize(w,h)
-        self.blockSignals(False)
-    """
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
