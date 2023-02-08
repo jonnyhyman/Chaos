@@ -19,6 +19,7 @@ Code structure is roughly:
 
 from vispy.color import get_colormaps, BaseColormap
 from vispy import app, scene, io
+import vispy.visuals.volume
 import vispy
 
 from numba import jit, njit, prange
@@ -313,7 +314,8 @@ Omax = 1 # oversampling
 
 I = 1500 # maximum iterations in the mandelbrot calculation
 
-rec_size = (2538, 1080) # frame resolution
+# rec_size = (2538, 1080) # frame resolution, that we used in the video
+rec_size = (1280, 720) # a better resolution for most screens
 
 # where to put the frames
 rec_prefix = './frames'
@@ -410,49 +412,43 @@ stepsize = .1  # step size inside the fragment shader : 0.1 is highest quality
 # Modify the vispy `transclucent` volume OpenGL shader
 
 NEW_TRANSLUCENT_SNIPPETS = dict(
-    before_loop="""
-        vec4 integrated_color = vec4(0., 0., 0., 0.);
-        """,
-    in_loop="""
+    before_loop="""vec4 integrated_color = vec4(0., 0., 0., 0.); """,
+    in_loop    =("""color = $cmap(val);
+float a1 = integrated_color.a;
 
-            color = $cmap(val);
-            float a1 = integrated_color.a;
+// MODIFIED color.r -> val because we have no alpha info
+float a2 = val * (1 - a1);
 
-            // MODIFIED color.r -> val because we have no alpha info
-            float a2 = val * (1 - a1);
+float alpha = max(a1 + a2, 0.001);
 
-            float alpha = max(a1 + a2, 0.001);
+// Doesn't work.. GLSL optimizer bug?
+//integrated_color = (integrated_color * a1 / alpha) +
+//                   (color * a2 / alpha);
+// This should be identical but does work correctly:
+integrated_color *= a1 / alpha;
+integrated_color += color * a2 / alpha;
 
-            // Doesn't work.. GLSL optimizer bug?
-            //integrated_color = (integrated_color * a1 / alpha) +
-            //                   (color * a2 / alpha);
-            // This should be identical but does work correctly:
-            integrated_color *= a1 / alpha;
-            integrated_color += color * a2 / alpha;
+integrated_color.a = alpha;
 
-            integrated_color.a = alpha;
-
-            if( alpha > 0.99 ){
-                // stop integrating if the fragment becomes opaque
-                iter = nsteps;
-            }
-
-        """,
-    after_loop="""
-        gl_FragColor = integrated_color;
-        """,
+if( alpha > 0.99 ){
+    // stop integrating if the fragment becomes opaque
+    iter = nsteps;
+}"""),
+    after_loop="""gl_FragColor = integrated_color;""",
 )
 
-NEW_TRANSLUCENT_FRAG_SHADER = vispy.visuals.volume.FRAG_SHADER.format(
-                                            **NEW_TRANSLUCENT_SNIPPETS)
-
-vispy.visuals.volume.frag_dict['translucent'] = NEW_TRANSLUCENT_FRAG_SHADER
+class NewVolume(scene.visuals.Volume):
+    def __init__(self, *args, **kwargs):
+        self._rendering_methods['translucent'] = NEW_TRANSLUCENT_SNIPPETS
+        super().__init__(*args, **kwargs)
 
 # Create the volume visuals, only one is visible
-volume1 = scene.visuals.Volume(vol, parent = view.scene,
+volume1 = NewVolume(vol, parent = view.scene,
                                 cmap = 'nipy_spectral_r', # colormap
                                 method = 'translucent', # shader method
                                 relative_step_size = stepsize)
+
+
 
 # rescale the volume to look like a `normal` mandelbrot set
 volume1.transform = scene.MatrixTransform()
@@ -466,7 +462,7 @@ else:
     volume1.transform.translate([0, (2/3-.4)*vol.shape[1], vol.shape[0]])
 
 
-cam = scene.cameras.TurntableCamera(parent=view.scene, fov=1,
+cam = scene.cameras.TurntableCamera(parent=view.scene, fov=2.0,
                                      name='Turntable')
 
 # Start distance (empircally determined)

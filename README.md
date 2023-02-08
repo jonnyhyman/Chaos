@@ -23,7 +23,8 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 
 #### If you run into problems
 0. Google the problem you're running into
-1. If it seems to be a problem with **this** code, post in "Issues"
+1. If it seems to be a problem with **this** code, check if others are having the same problem in "Issues"
+2. Post an issue if no one else has encountered the same thing
 
 ----
 
