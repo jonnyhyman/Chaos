@@ -10,22 +10,9 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 
 #### Install these requirements
 - [Python 3.6 to 3.10](https://www.anaconda.com/distribution/)
+- [pip](https://pypi.org/project/pip/) package : `python -m pip install--upgrade pip`
 - [Numpy](https://numpy.org) package : `pip install numpy`
-- [Numba](https://numba.pydata.org) package : `pip install numba` _(not functional on Python 3.11+ as of 2/8/2023)_
-
-- For the Logistic Map user interface:
-  - [PyQt5](https://pypi.org/project/PyQt5/) : `pip install pyqt5`
-  - [PyQtGraph](https://pyqtgraph.readthedocs.io/en/latest/) : `pip install pyqtgraph` (Python 3.6, 3.7) or `pip install pyqtgraph==0.11.0rc0` (Python 3.8)
-
-- For the 3D Mandelbrot Set & Logistic Map Zoom:
-  - [Vispy](http://vispy.org) : `pip install vispy`
-  - [Matplotlib](https://matplotlib.org) : `pip install matplotlib`
-  - [PyOpenGL](https://pypi.org/project/PyOpenGL/) : `pip install pyopengl`
-  - [ffmpeg](https://www.ffmpeg.org) if you want to auto-stitch rendered frames to .movs
-    - macOS: [Install homebrew](https://brew.sh) then `brew install ffmpeg`
-    - Windows: [Install chocolatey](https://chocolatey.org) then `choco install ffmpeg`
-
-All in one: `pip install numpy numba pyqt5 pyqtgraph vispy matplotlib pyopengl`
+- [Numba](https://numba.pydata.org) package : `pip install numba`
 
 #### Run guide for total beginners
 0. Open "Terminal" on macOS & Linux, "Powershell" or "Command Prompt" on Windows
