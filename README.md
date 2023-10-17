@@ -10,7 +10,7 @@ This is not a library, but rather a collection of standalone scripts! As such, t
 
 #### Install these requirements
 - [Python 3.6 to 3.10](https://www.anaconda.com/distribution/)
-- [pip](https://pypi.org/project/pip/) package : `python -m pip install--upgrade pip`
+- [pip](https://pypi.org/project/pip/) package : `python -m pip install --upgrade pip`
 - [Numpy](https://numpy.org) package : `pip install numpy`
 - [Numba](https://numba.pydata.org) package : `pip install numba`
 
